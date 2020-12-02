@@ -1,0 +1,77 @@
+
+
+
+<div class="listed">
+<!--  <input type = "text" [(ngModel)]="title">-->
+<!--  <button (click)="addTodo()">﹢</button>-->
+  <br>
+  <p>To Do</p>
+  <ul>
+    <li *ngFor="let item of todoItems; let key = index;" [hidden]="item.status">
+      <input type = "checkbox" [(ngModel)]="item.status" (click)="mark(item)"> {{item.title}} <button (click)="showDetail(item._id)" class="detailbtn">﹀</button>
+
+      <div *ngIf="todo!=null" [hidden]="todo._id != item._id" class="details">
+        <button (click)="deleteTodo(item)">X</button>
+        <button (click)="changeUpdate()">update</button>
+        <br>
+        <form class="form" (ngSubmit)="updateTodo(item)" [hidden]="!updating">
+          <input type="text" name="title" [(ngModel)]="title"
+                 placeholder="add title.."><br>
+
+          <input type="text" name="text" [(ngModel)]="description"
+                 placeholder="add text.."><br>
+
+          <input type="date" name="date" [(ngModel)]="dueDate"
+                 placeholder="add dueDate.."><br>
+
+          <input type="text" name="date" [(ngModel)]="time"
+                 placeholder="time">
+
+          <input type="submit" value="Submit" class="btn">
+        </form>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{todo.description}}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DDL: {{todo.dueDate}}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time: {{todo.time}}<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;createdAt: {{todo.createDate}}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modifiedAt: {{todo.modifiedDate}}
+      </div>
+    </li>
+  </ul>
+
+  <p>Finished</p>
+  <ul>
+    <li *ngFor="let item of todoItems; let key = index;" [hidden]="!item.status">
+      <input type = "checkbox" [(ngModel)]="item.status" (click)="mark(item)"> {{item.title}} <button (click)="showDetail(item._id)" class="detailbtn">﹀</button>
+
+      <div *ngIf="todo!=null" [hidden]="todo._id != item._id" class="details">
+        <button (click)="deleteTodo(item)">X</button>
+        <button (click)="changeUpdate()">update</button>
+        <br>
+        <form class="form" (ngSubmit)="updateTodo(item)" [hidden]="!updating">
+          <input type="text" name="title" [(ngModel)]="title"
+                 placeholder="add title.."><br>
+
+          <input type="text" name="text" [(ngModel)]="description"
+                 placeholder="add text.."><br>
+
+          <input type="date" name="date" [(ngModel)]="dueDate"
+                 placeholder="add dueDate.."><br>
+
+          <input type="text" name="date" [(ngModel)]="time"
+                 placeholder="time">
+
+          <input type="submit" value="Submit" class="btn">
+        </form>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{todo.description}}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DDL: {{todo.dueDate}}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time: {{todo.time}}<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;createdAt: {{todo.createDate}}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modifiedAt: {{todo.modifiedDate}}
+      </div>
+    </li>
+  </ul>
+</div>
+
+<!--<script>-->
+<!--  showDetail-->
+<!--</script>-->

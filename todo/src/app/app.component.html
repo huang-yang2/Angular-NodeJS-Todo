@@ -1,0 +1,12 @@
+
+
+<app-nav-bar></app-nav-bar>
+<button (click)="loadAddPage()">addTodo</button>
+<app-add-page [hidden]="!add"></app-add-page>
+
+
+<!--bind the todoList got from db with the todoItems in listed component-->
+<app-listed [todoItems]="todoList"></app-listed>
+<!--<h1 class="title">{{title}}</h1>-->
+
+<!--<router-outlet></router-outlet>-->

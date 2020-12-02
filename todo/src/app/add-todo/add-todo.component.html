@@ -1,0 +1,15 @@
+<form class="form" (ngSubmit)="onSubmit()" >
+  <input type="text" name="title" [(ngModel)]="title"
+         placeholder="title">
+
+  <input type="text" name="text" [(ngModel)]="text"
+         placeholder="description">
+
+  <input type="date" name="date" [(ngModel)]="dueDate"
+         placeholder="dueDate">
+
+  <input type="text" name="time" [(ngModel)]="time"
+         placeholder="time">
+
+  <input type="submit" value="Submit" class="btn">
+</form>
